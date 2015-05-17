@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="ten wide column">
+    <form class="ui segment form {% if form.target_url.errors %}error{% endif %}" method="post">
+        {% csrf_token %}
+
+        {% if form.target_url.errors %}
+        <div class="ui error message">
+            <p>{{ form.target_url.errors.0 }}</p>
+        </div>
+        {% endif %}
+
+        <div class="field ">
+            <div class="ui action left icon input">
+                <i class="slack icon"></i>
+                {{ form.target_url }}
+
+                <button type="submit" class="ui teal button">Cut</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

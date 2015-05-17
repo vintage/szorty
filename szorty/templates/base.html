@@ -1,0 +1,30 @@
+{% load pipeline %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Szorty</title>
+
+        {% stylesheet 'main' %}
+    </head>
+    <body>
+        <div class="ui centered grid">
+            <div class="ten wide column"></div>
+            <div class="ten wide column">
+                <a href="{% url 'shortcut_create' %}">
+                    <div class="ui red dividing header">
+                        <i class="massive circular magic icon"></i>
+                        <div class="content">
+                            Szorty
+                            <div class="sub header">Share shorten link with your friends</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            {% block content %}{% endblock %}
+        </div>
+
+        {% javascript 'main' %}
+    </body>
+</html>

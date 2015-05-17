@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="ten wide column">
+    <div class="ui segment">
+        <h4>Your new URL is</h4>
+        <h2>{{ object.get_redirection_url }}</h2>
+    </div>
+</div>
+{% endblock %}
