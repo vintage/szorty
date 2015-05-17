@@ -10,8 +10,16 @@ class Word(models.Model):
     created_at = models.DateTimeField('Create date', auto_now_add=True)
     updated_at = models.DateTimeField('Last update', auto_now=True)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        url = reverse('shortcut_redirect', args=[self.name])
+
+        return '{}{}'.format(settings.SITE_URL, url)
 
 
 class Shortcut(models.Model):
@@ -26,6 +34,7 @@ class Shortcut(models.Model):
     class Meta:
         verbose_name = 'Redirection URL'
         verbose_name_plural = 'Redirection URLs'
+        ordering = ['updated_at']
 
     def __str__(self):
         return self.target_url
